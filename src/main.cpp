@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include "../repo/ApplicationDAOImpl.h"
 #include "../models/Application.h"
 using namespace std;
 
@@ -9,17 +10,19 @@ int main()
   Clears the file for development purpose
   */
   // ofstream ofs;
-  // ofs.open("../db/applications.txt", ofstream::out | ofstream::trunc);
+  // ofs.open("../db/applications.data", ofstream::out | ofstream::trunc);
   // ofs.close();
 
-  Application application(
+  // Create ApplicationDAOImpl object
+  ApplicationDAOImpl applicationDaoObj;
+  Application application = applicationDaoObj.createApplication(
       4,
       "A_big_house",
       8000000,
       100000,
       "PANXXXX",
       "AAXXXX");
-  Application application2(
+  Application application2 = applicationDaoObj.createApplication(
       5,
       "A_smaller_house",
       5000000,
@@ -27,29 +30,28 @@ int main()
       "PANX",
       "AAX");
 
-  // Saving application object to file
-  application.saveToFile();
-  application2.saveToFile();
+  // // Saving application object to file
+  // applicationDaoObj.saveToFile(application);
+  // applicationDaoObj.saveToFile(application2);
 
   // // Reading application vector from file
-  // vector<Application> applications = Application::getApplications();
+  // map<long int, Application> applicationMap = applicationDaoObj.getApplications();
 
-  // // Looping over vector and printing details of applications
-  // for (auto &application_ : applications)
+  // // Looping over map and printing details of applications
+  // map<long int, Application>::iterator it;
+  // for (it = applicationMap.begin(); it != applicationMap.end(); it++)
   // {
-  //   application_.printDetails();
+  //   cout<<it->first<<" : "<<it->second;
   // }
 
   // // Testing the getApplicationByID method
-  // Application application3 = Application::getApplication(15426);
-  // application3.printDetails();
+  // Application application3 = applicationDaoObj.getApplication(3314);
 
   // // Testing the deleteApplication() function
-  // Application::updateApplication(15426);
+  // applicationDaoObj.deleteApplication(application3);
 
-  // Testing the updateApplication() method
-  application.approveApplication();
-  application.updateApplication();
+  // // Testing the updateApplicationStatus() method
+  // applicationDaoObj.updateApplicationStatus(application3, "APPROVED");
   
   return 0;
 }
