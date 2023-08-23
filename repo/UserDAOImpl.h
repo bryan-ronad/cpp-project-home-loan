@@ -99,7 +99,6 @@ public:
                 {
                     if (password == _password)
                     {
-                        cout << "Found matching application\n";
                         iss >> first_name;
                         iss >> last_name;
                         iss >> salary;
@@ -107,6 +106,7 @@ public:
                         iss >> Aadhaar;
                         iss >> is_admin;
                         User temp_user(_applicantID, _password, first_name, last_name, salary, PAN, Aadhaar, is_admin);
+                        cout << "Logged In Successfully \n";
                         return temp_user;
                     }
                     else
@@ -118,5 +118,13 @@ public:
             }
         }
         return temp_user;
+    }
+
+    static User logout()
+    {
+        User user;
+        cout << "Logged Out \n";
+
+        return user;
     }
 };

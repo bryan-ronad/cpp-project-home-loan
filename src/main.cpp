@@ -57,7 +57,7 @@ int main()
 
   //-----------------------USER-------------------------------//
 
-  UserDAOImpl userDaoObj;
+  // UserDAOImpl userDaoObj;
   // User user1 = userDaoObj.createUser(
   //     "pass@123",
   //     "chaitanya",
@@ -86,8 +86,11 @@ int main()
   // // Testing the deleteApplication() function
   // userDaoObj.deleteUser(user3);
 
-  // User logged_user=UserDAOImpl::login(1512072,"pass@123");
-  // cout<<logged_user.getUserID()<<endl;
+  User logged_user = UserDAOImpl::login(15072, "pass@123");
+  cout << logged_user.getUserID() << endl;
+
+  logged_user = UserDAOImpl::logout();
+  cout << logged_user.getUserID() << endl;
 
   return 0;
 }
