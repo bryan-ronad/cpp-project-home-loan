@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "../headers/Application.h"
+#include "../models/Application.h"
 using namespace std;
 
 int main()
@@ -9,7 +9,7 @@ int main()
   Clears the file for development purpose
   */
   // ofstream ofs;
-  // ofs.open("../data/applications.txt", ofstream::out | ofstream::trunc);
+  // ofs.open("../db/applications.txt", ofstream::out | ofstream::trunc);
   // ofs.close();
 
   Application application(
@@ -27,9 +27,9 @@ int main()
       "PANX",
       "AAX");
 
-  // // Saving application object to file
-  // application.saveToFile();
-  // application2.saveToFile();
+  // Saving application object to file
+  application.saveToFile();
+  application2.saveToFile();
 
   // // Reading application vector from file
   // vector<Application> applications = Application::getApplications();
@@ -44,7 +44,12 @@ int main()
   // Application application3 = Application::getApplication(15426);
   // application3.printDetails();
 
-  // Testing the deleteApplication() function
-  Application::deleteApplication(15426);
+  // // Testing the deleteApplication() function
+  // Application::updateApplication(15426);
+
+  // Testing the updateApplication() method
+  application.approveApplication();
+  application.updateApplication();
+  
   return 0;
 }

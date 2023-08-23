@@ -59,9 +59,9 @@ public:
     return applicationID;
   }
 
-  void approveApplication(const long int appID)
+  void approveApplication()
   {
-    
+    applicationStatus = "APPROVED";
   }
 
   void rejectApplication()
@@ -71,7 +71,7 @@ public:
 
   void saveToFile()
   {
-    ofstream file("../data/applications.txt", ios::app);
+    ofstream file("../db/applications.txt", ios::app);
     if (file.is_open())
     {
       file << applicationID << " " << applicantID << " " << applicationStatus << " " << propertyName << " " << propertyCost << " " << salary << " " << PAN << " " << Aadhaar << "\n";
@@ -87,7 +87,7 @@ public:
   {
     vector<Application> result;
 
-    ifstream input("../data/applications.txt");
+    ifstream input("../db/applications.txt");
     if (input)
     {
 
@@ -129,7 +129,7 @@ public:
     long int salary;
     string PAN;
     string Aadhaar;
-    ifstream input("../data/applications.txt");
+    ifstream input("../db/applications.txt");
     if(input){
       string line;
       while (getline(input, line)){
@@ -154,8 +154,8 @@ public:
 
   static void deleteApplication (const long int appID){
     long int applicationID;
-    ifstream input("../data/applications.txt");
-    ofstream output("../data/tempApplications.txt");
+    ifstream input("../db/applications.txt");
+    ofstream output("../db/tempApplications.txt");
     if(input){
       string line;
       while (getline(input, line)){
@@ -176,8 +176,36 @@ public:
     } else {
       cerr << "Unable to open file for reading" << endl;
     }
-    filesystem::remove("../data/applications.txt");
-    filesystem::rename("../data/tempApplications.txt", "../data/applications.txt");
+    filesystem::remove("../db/applications.txt");
+    filesystem::rename("../db/tempApplications.txt", "../db/applications.txt");
   }
 
+  void updateApplication(){
+    long int fileApplicationID;
+    ifstream input("../db/applications.txt");
+    ofstream output("../db/tempApplications.txt");
+    if(input){
+      string line;
+      while (getline(input, line)){
+        istringstream iss(line);
+        iss >> fileApplicationID;
+        if(fileApplicationID==this->applicationID){
+          cout << "Updating application\n";
+          output << applicationID << " " << applicantID << " " << applicationStatus << " " << propertyName << " " << propertyCost << " " << salary << " " << PAN << " " << Aadhaar << "\n";
+          continue;
+        }
+        if(output.is_open()){
+          output << line << endl;
+        } else {
+          cerr << "Unable to open file for writing" << endl;
+        }
+      }
+      input.close();
+      output.close();
+    } else {
+      cerr << "Unable to open file for reading" << endl;
+    }
+    filesystem::remove("../db/applications.txt");
+    filesystem::rename("../db/tempApplications.txt", "../db/applications.txt");
+  }
 };
