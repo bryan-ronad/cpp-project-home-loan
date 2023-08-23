@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 #include "../repo/ApplicationDAOImpl.h"
 #include "../models/Application.h"
+#include "../repo/UserDAOImpl.h"
+#include "../models/User.h"
 using namespace std;
 
 int main()
@@ -52,6 +54,37 @@ int main()
 
   // // Testing the updateApplicationStatus() method
   // applicationDaoObj.updateApplicationStatus(application3, "APPROVED");
-  
+
+  //-----------------------USER-------------------------------//
+
+  UserDAOImpl userDaoObj;
+  User user1 = userDaoObj.createUser(
+      "pass@123",
+      "chaitanya",
+      "Kumbhar",
+      50000,
+      "PANXXX",
+      "ADHXXX",
+      false);
+
+  // userDaoObj.saveToFile(user1);
+  // cout<<userDaoObj.getUserID(user1)<<endl;
+
+  // // Reading application vector from file
+  // map<long int, User> userMap = userDaoObj.getUsers();
+
+  // // Looping over map and printing details of applications
+  // map<long int, User>::iterator it;
+  // for (it = userMap.begin(); it != userMap.end(); it++)
+  // {
+  //   cout<<it->first<<" : "<<it->second;
+  // }
+
+  // // Testing the getApplicationByID method
+  // User user3 = userDaoObj.getUser(1292);
+
+  // // Testing the deleteApplication() function
+  // userDaoObj.deleteUser(user3);
+
   return 0;
 }
