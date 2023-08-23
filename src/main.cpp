@@ -27,17 +27,24 @@ int main()
       "PANX",
       "AAX");
 
-  // Saving application object to file
-  application.saveToFile();
-  application2.saveToFile();
+  // // Saving application object to file
+  // application.saveToFile();
+  // application2.saveToFile();
 
-  // Reading application vector from file
-  vector<Application> applications = Application::retrieveApplications();
+  // // Reading application vector from file
+  // vector<Application> applications = Application::getApplications();
 
-  // Looping over vector and printing details of applications
-  for (auto &application_ : applications)
-  {
-    application_.printDetails();
-  }
+  // // Looping over vector and printing details of applications
+  // for (auto &application_ : applications)
+  // {
+  //   application_.printDetails();
+  // }
+
+  // // Testing the getApplicationByID method
+  // Application application3 = Application::getApplication(15426);
+  // application3.printDetails();
+
+  // Testing the deleteApplication() function
+  Application::deleteApplication(15426);
   return 0;
 }
