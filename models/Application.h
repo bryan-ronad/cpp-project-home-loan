@@ -53,7 +53,12 @@ public:
     long int getApplicationID(){
       return this->applicationID;
     }
-
+    string getApplicationStatus(){
+      return this->applicationStatus;
+    }
+    long int getApplicantID(){
+      return this->applicantID;
+    }
     /*
     Setter functions
     */

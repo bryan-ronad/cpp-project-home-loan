@@ -15,10 +15,12 @@ public:
         User tempUser = User(password, fname, lname, salary, PAN, Aadhaar, is_admin);
         return tempUser;
     }
+
     long int getUserID(User user)
     {
         return user.getUserID();
     }
+
     static map<long int, User> getUsers()
     {
         User tempUser;
@@ -36,11 +38,13 @@ public:
         }
         return tempMap;
     };
+
     static User getUser(const long int userID)
     {
         map<long int, User> userMap = UserDAOImpl::getUsers();
         return userMap[userID];
     }
+
     void saveToFile(User user)
     {
         ofstream fout("../db/users.data", ofstream::app);
@@ -54,6 +58,7 @@ public:
         }
         fout.close();
     }
+
     void deleteUser(User user)
     {
         map<long int, User> userMap = UserDAOImpl::getUsers();

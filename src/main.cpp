@@ -1,14 +1,26 @@
 #include <bits/stdc++.h>
-#include "../repo/ApplicationDAOImpl.h"
 #include "../models/Application.h"
-#include "../repo/UserDAOImpl.h"
 #include "../models/User.h"
-#include "../service/AuthService.h"
+#include "../repo/ApplicationDAOImpl.h"
+#include "../repo/UserDAOImpl.h"
+#include "../services/ApplicationServiceImpl.cpp"
+#include "../services/UserServiceImpl.cpp"
+#include "../UI/Menu.cpp"
+#include "../UI/List.cpp"
+#include "../UI/Form.cpp"
 using namespace std;
 
 int main()
 {
+  /*
+  SETUP/INITIALIZATIONS
+  */
+  ApplicationDAOImpl applicationDaoObj;
+  UserDAOImpl userDaoObj;
+  ApplicationServiceImpl applicationServiceObj(applicationDaoObj);
+  UserServiceImpl userServiceObj(userDaoObj);
   srand((unsigned)time(NULL));
+
   /*
   Clears the file for development purpose
   */
@@ -16,84 +28,92 @@ int main()
   // ofs.open("../db/applications.data", ofstream::out | ofstream::trunc);
   // ofs.close();
 
-  // Create ApplicationDAOImpl object
-  ApplicationDAOImpl applicationDaoObj;
-  Application application = applicationDaoObj.createApplication(
-      4,
-      "A_big_house",
-      8000000,
-      100000,
-      "PANXXXX",
-      "AAXXXX");
-  Application application2 = applicationDaoObj.createApplication(
-      5,
-      "A_smaller_house",
-      5000000,
-      100000,
-      "PANX",
-      "AAX");
+  // Application application = applicationServiceObj.createApplication(
+  //     4,
+  //     "A_big_house",
+  //     8000000,
+  //     100000,
+  //     "PANXXXX",
+  //     "AAXXXX");
 
-  // // Saving application object to file
-  // applicationDaoObj.saveToFile(application);
-  // applicationDaoObj.saveToFile(application2);
+  // Application application2 = applicationServiceObj.createApplication(
+  //     5,
+  //     "A_smaller_house",
+  //     5000000,
+  //     100000,
+  //     "PANX",
+  //     "AAX");
 
-  // // Reading application vector from file
-  // map<long int, Application> applicationMap = applicationDaoObj.getApplications();
+  /*
+  1. LOGIN
+  */
+  // Taking username and password
+  long int username;
+  string password;
+  cout<<"Enter your username: ";
+  cin>>username;
+  cout<<"Enter your password: ";
+  cin>>password;
+  // Calling service login function 
+  User loggedInUser = userServiceObj.login(username, password);
 
-  // // Looping over map and printing details of applications
-  // map<long int, Application>::iterator it;
-  // for (it = applicationMap.begin(); it != applicationMap.end(); it++)
-  // {
-  //   cout<<it->first<<" : "<<it->second;
-  // }
-
-  // // Testing the getApplicationByID method
-  // Application application3 = applicationDaoObj.getApplication(3314);
-
-  // // Testing the deleteApplication() function
-  // applicationDaoObj.deleteApplication(application3);
-
-  // // Testing the updateApplicationStatus() method
-  // applicationDaoObj.updateApplicationStatus(application3, "APPROVED");
-
-  //-----------------------USER-------------------------------//
-
-  // UserDAOImpl userDaoObj;
-  // User user1 = userDaoObj.createUser(
-  //     "pass@123",
-  //     "chaitanya",
-  //     "Kumbhar",
-  //     50000,
-  //     "PANXXX",
-  //     "ADHXXX",
-  //     false);
-
-  // userDaoObj.saveToFile(user1);
-  // cout<<userDaoObj.getUserID(user1)<<endl;
-
-  // // Reading application vector from file
-  // map<long int, User> userMap = userDaoObj.getUsers();
-
-  // // Looping over map and printing details of applications
-  // map<long int, User>::iterator it;
-  // for (it = userMap.begin(); it != userMap.end(); it++)
-  // {
-  //   cout<<it->first<<" : "<<it->second;
-  // }
-
-  // // Testing the getApplicationByID method
-  // User user3 = userDaoObj.getUser(1292);
-
-  // // Testing the deleteApplication() function
-  // userDaoObj.deleteUser(user3);
-
-  AuthService authobj;
-  
-  User logged_user = authobj.login(15072, "pass@123");
-  cout << logged_user.getUserID() << endl;
-
-  logged_user = authobj.logout();
-  cout << logged_user.getUserID() << endl;
-
+  /*
+  2. Admin menu
+  */
+  int mainMenuChoice;
+  if (userDaoObj.isAdmin(loggedInUser)){
+    Menu::adminMainMenu();   
+    cin>>mainMenuChoice;
+    /*
+    3. Application Form
+    */
+    if(mainMenuChoice==1)
+    {
+      int adminChoice;
+      Menu::adminFunctionalityMenu();
+      cin>>adminChoice;
+      if(adminChoice==1)
+      {
+        map<long int, Application> applicationMap = applicationServiceObj.getApplications();
+        List::listApplications(applicationMap);
+      } else if(adminChoice==2) {
+        map<long int, Application> applicationMap = applicationServiceObj.getFilteredApplications("PENDING");
+        List::listApplications(applicationMap);
+      }
+      int adminAppChoice;
+      Menu::adminApplicationMenu();
+      cin>>adminAppChoice;
+      long int applicationID;
+      cout<<"Enter application ID to perform action on: ";
+      cin>>applicationID;
+      if(adminAppChoice==1)
+      {
+        applicationServiceObj.updateApplicationStatus(applicationID, "APPROVED");
+        map<long int, Application> applicationMap = applicationServiceObj.getApplications();
+        List::listApplications(applicationMap);
+      } else if (adminAppChoice==2) {
+        applicationServiceObj.updateApplicationStatus(applicationID, "REJECTED");
+        map<long int, Application> applicationMap = applicationServiceObj.getApplications();
+        List::listApplications(applicationMap);
+      } else if (adminAppChoice==3) {
+        cout<<userServiceObj.checkEligibility(applicationDaoObj.getApplication(applicationID));
+      }
+    }
+  } else {
+    int nonAdminChoice;
+    Menu::mainMenu();
+    cin>>nonAdminChoice;
+    if(nonAdminChoice==1){
+      appFormStruct appFormInput = Form::applicationForm();
+      Application createdApplication = applicationServiceObj.createApplication(
+        loggedInUser.getUserID(), 
+        appFormInput.propertyName, 
+        appFormInput.propertyCost,
+        appFormInput.salary,
+        appFormInput.PAN,
+        appFormInput.Aadhaar
+        );
+    }
+  }
   return 0;
 }

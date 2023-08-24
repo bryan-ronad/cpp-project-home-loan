@@ -8,4 +8,5 @@ class UserDAO
     virtual long int getUserID(User user) = 0;
     virtual void saveToFile(User user) = 0;
     virtual void deleteUser(User user) = 0;
+    virtual bool isAdmin(User user) = 0;
 };

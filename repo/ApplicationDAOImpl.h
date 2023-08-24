@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -22,6 +23,7 @@ class ApplicationDAOImpl : public ApplicationDAO {
   void approveApplication(Application application)
   {
     application.setApplicationStatus("APPROVED"); 
+    
   }
 
   void rejectApplication(Application application)
@@ -43,7 +45,7 @@ class ApplicationDAOImpl : public ApplicationDAO {
     fout.close();
   }
 
-  static map<long int, Application> getApplications()
+  map<long int, Application> getApplications()
   {
     Application tempApp;
     map<long int, Application> tempMap;
@@ -59,7 +61,7 @@ class ApplicationDAOImpl : public ApplicationDAO {
     return tempMap;
   };
 
-  static Application getApplication(const long int appID){
+  Application getApplication(const long int appID){
     map<long int, Application> applicationMap = ApplicationDAOImpl::getApplications();
     return applicationMap[appID];
   }
