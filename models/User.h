@@ -45,9 +45,18 @@ public:
         this->Aadhaar = Aadhaar;
         this->is_admin = is_admin;
     }
+
+    /*
+    Getter functions
+    */
     long int getUserID()
     {
         return this->applicantID;
+    }
+
+    bool isAdmin()
+    {
+        return this->is_admin;
     }
 };
 ostream &operator<<(ostream &out, User &u)
