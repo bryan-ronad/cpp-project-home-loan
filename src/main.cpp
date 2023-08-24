@@ -3,6 +3,7 @@
 #include "../models/Application.h"
 #include "../repo/UserDAOImpl.h"
 #include "../models/User.h"
+#include "../service/AuthService.h"
 using namespace std;
 
 int main()
@@ -86,10 +87,12 @@ int main()
   // // Testing the deleteApplication() function
   // userDaoObj.deleteUser(user3);
 
-  User logged_user = UserDAOImpl::login(15072, "pass@123");
+  AuthService authobj;
+  
+  User logged_user = authobj.login(15072, "pass@123");
   cout << logged_user.getUserID() << endl;
 
-  logged_user = UserDAOImpl::logout();
+  logged_user = authobj.logout();
   cout << logged_user.getUserID() << endl;
 
   return 0;
