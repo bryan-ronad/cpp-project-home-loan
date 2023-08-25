@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\db">
+      <UniqueIdentifier>{17cbc989-f585-4139-bf4c-3348271fd5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\model">
+      <UniqueIdentifier>{b0011f31-beeb-41e3-b719-388d1280a1c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\repo">
+      <UniqueIdentifier>{bd8997f3-c228-494d-9de6-427aa24594b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\service">
+      <UniqueIdentifier>{3f17fbac-4097-4bf6-b5e2-8b470545b559}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Login.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminDashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Register.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoanApply.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Profile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Landing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StatusCheck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Login.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Resource Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDAO.h">
+      <Filter>Resource Files\repo</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDAOImpl.h">
+      <Filter>Resource Files\repo</Filter>
+    </ClInclude>
+    <ClInclude Include="UserService.h">
+      <Filter>Resource Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="HLApplication.h">
+      <Filter>Resource Files\model</Filter>
+    </ClInclude>
+    <ClInclude Include="UserServiceImpl.h">
+      <Filter>Resource Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminDashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Register.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoanApply.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Landing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationDAO.h">
+      <Filter>Resource Files\repo</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationDAOImpl.h">
+      <Filter>Resource Files\repo</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationService.h">
+      <Filter>Resource Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationServiceImpl.h">
+      <Filter>Resource Files\service</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusCheck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="users.txt">
+      <Filter>Resource Files\db</Filter>
+    </Text>
+    <Text Include="applications.txt">
+      <Filter>Resource Files\db</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
