@@ -80,7 +80,7 @@ namespace HLoanApplication {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(270, 261);
+			this->button1->Location = System::Drawing::Point(285, 257);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(154, 48);
 			this->button1->TabIndex = 0;
@@ -103,6 +103,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox2->Location = System::Drawing::Point(325, 176);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->PasswordChar = '*';
 			this->textBox2->Size = System::Drawing::Size(259, 30);
 			this->textBox2->TabIndex = 2;
 			// 
@@ -112,7 +113,7 @@ namespace HLoanApplication {
 			this->label1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(186, 338);
+			this->label1->Location = System::Drawing::Point(201, 334);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(321, 20);
 			this->label1->TabIndex = 3;

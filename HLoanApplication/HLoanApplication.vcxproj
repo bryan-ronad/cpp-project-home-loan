@@ -143,6 +143,7 @@
     <ClInclude Include="Eligibility.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CalcServiceImpl.h" />
     <ClInclude Include="EMI.h">
       <FileType>CppForm</FileType>
     </ClInclude>

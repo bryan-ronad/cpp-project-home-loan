@@ -90,7 +90,7 @@ namespace HLoanApplication {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(124, 238);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(575, 34);
+			this->label1->Size = System::Drawing::Size(575, 33);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Unlock the door to happiness";
 			this->label1->Click += gcnew System::EventHandler(this, &Landing::label1_Click);
@@ -103,7 +103,7 @@ namespace HLoanApplication {
 			this->label2->ForeColor = System::Drawing::SystemColors::HotTrack;
 			this->label2->Location = System::Drawing::Point(196, 296);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(395, 34);
+			this->label2->Size = System::Drawing::Size(395, 33);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"with our Home Loans";
 			// 
@@ -140,7 +140,7 @@ namespace HLoanApplication {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(389, 349);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(115, 34);
+			this->label5->Size = System::Drawing::Size(115, 33);
 			this->label5->TabIndex = 5;
 			this->label5->Text = L"8.5 %";
 			// 
@@ -161,7 +161,7 @@ namespace HLoanApplication {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(819, 554);
+			this->ClientSize = System::Drawing::Size(784, 554);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);

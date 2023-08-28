@@ -4,6 +4,7 @@
 #include <string>
 #include <msclr/marshal_cppstd.h>
 #include <iostream>
+#include "CalcServiceImpl.h"
 using namespace std;
 
 namespace HLoanApplication {
@@ -476,16 +477,7 @@ namespace HLoanApplication {
 
 		}
 #pragma endregion
-	public:map<string, string> EMILo(long int LoanAmt,long int IntrestRate,long int Tenure) {
-		map<string, string> response;
-
-		response["loan_emi"] = to_string(LoanAmt);
-		response["payable_intrest"] = to_string(LoanAmt * IntrestRate);
-		response["total_payment"] = to_string(LoanAmt + (LoanAmt * IntrestRate));
-
-		return response;
-
-	}
+	
 	public:void EMILOGIC() {
 		String^ la = ((trackBar1->Value).ToString());
 		String^ ir = ((trackBar2->Value).ToString());
@@ -511,7 +503,7 @@ namespace HLoanApplication {
 		// 
 		// 
 		// 
-		map<string, string> response = EMILo(LoanAmt, IntrestRate, Tenure);
+		map<string, string> response = CalcServiceImpl::getEmi(LoanAmt, IntrestRate, Tenure);
 
 		String^ loan_emi = msclr::interop::marshal_as<String^>(response["loan_emi"]);
 		String^ payable_intrest = msclr::interop::marshal_as<String^>(response["payable_intrest"]);

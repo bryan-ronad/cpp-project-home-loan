@@ -186,9 +186,14 @@ public:
         }
         return tempMap;
     };
-    void updateApplicationStatus(HLApplication application, string status) {
+    bool updateApplicationStatus(HLApplication application, string status) {
         map<long int, HLApplication> applicationMap = ApplicationDAOImpl::getApplicationsMap();
         cout << application.getApplicationID() << endl;
+        // Find key and update in map
+        map<long int, HLApplication>::iterator iter = applicationMap.find(application.getApplicationID());
+
+        if (iter == applicationMap.end()) return false;
+        
         HLApplication tempApplication = applicationMap[application.getApplicationID()];
         if (status == "APPROVED") {
             tempApplication.setApplicationStatus("APPROVED");
@@ -197,7 +202,6 @@ public:
             tempApplication.setApplicationStatus("REJECTED");
         }
         // Find key and update in map
-        map<long int, HLApplication>::iterator iter = applicationMap.find(application.getApplicationID());
         if (iter == applicationMap.end()) throw exception();
         iter->second = tempApplication;
 
@@ -221,7 +225,7 @@ public:
             cerr << "Unable to open file for writing" << endl;
         }
         fout.close();
-        
+        return true;
 
     }
     

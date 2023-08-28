@@ -81,7 +81,12 @@ namespace HLoanApplication {
 			dataGridView1->DataSource = table;
 
 		}
-
+		bool check_number(string str) {
+			for (int i = 0; i < str.length(); i++)
+				if (isdigit(str[i]) == false)
+					return false;
+			return true;
+		}
 
 		AdminDashboard(String^ adminId,String^ name,String^ password,String^ salary, String^PAN,String^ Aadhar) {
 			InitializeComponent();
@@ -302,30 +307,63 @@ namespace HLoanApplication {
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 
 	String^ applicationId = textBox1->Text;
-	ApplicationDAOImpl appDAOObj;
 	std::string converted_applicationId = msclr::interop::marshal_as< std::string >(applicationId);
-	long int int_applicationId = stol(converted_applicationId);
+	if (check_number(converted_applicationId)) {
+		if (converted_applicationId != "") {
 
-	ApplicationServiceImpl app_service_obj(appDAOObj);
+			ApplicationDAOImpl appDAOObj;
 
-	app_service_obj.updateApplicationStatus(int_applicationId,"APPROVED");
+			long int int_applicationId = stol(converted_applicationId);
 
-	MessageBox::Show("Success");
-	loadData();
+			ApplicationServiceImpl app_service_obj(appDAOObj);
+
+			bool status=app_service_obj.updateApplicationStatus(int_applicationId, "APPROVED");
+
+			if (status) {
+
+				MessageBox::Show("Status updated");
+				loadData();
+			}
+			else {
+				MessageBox::Show("Enter valid id");
+			}
+		}
+		else {
+			MessageBox::Show("Please enter application id");
+		}
+	}
+	else {
+		MessageBox::Show("Application id does not contain any string/s");
+	}
 
 }
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ applicationId = textBox1->Text;
-	ApplicationDAOImpl appDAOObj;
 	std::string converted_applicationId = msclr::interop::marshal_as< std::string >(applicationId);
-	long int int_applicationId = stol(converted_applicationId);
+	if (check_number(converted_applicationId)) {
 
-	ApplicationServiceImpl app_service_obj(appDAOObj);
+	if (converted_applicationId !="") {
+		ApplicationDAOImpl appDAOObj;
+		long int int_applicationId = stol(converted_applicationId);
 
-	app_service_obj.updateApplicationStatus(int_applicationId, "REJECTED");
+		ApplicationServiceImpl app_service_obj(appDAOObj);
 
-	MessageBox::Show("Success");
-	loadData();
+		bool status=app_service_obj.updateApplicationStatus(int_applicationId, "REJECTED");
+		if (status) {
+			
+				MessageBox::Show("status updated");
+				loadData();
+		}
+		else {
+			MessageBox::Show("Enter valid id");
+		}
+	}else {
+		MessageBox::Show("Please enter application id");
+	}
+	}
+	else {
+		MessageBox::Show("Application id does not contain any string/s");
+	}
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }

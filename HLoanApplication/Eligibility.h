@@ -4,6 +4,7 @@
 #include <string>
 #include <msclr/marshal_cppstd.h>
 #include <iostream>
+#include "CalcServiceImpl.h"
 using namespace std;
 
 namespace HLoanApplication {
@@ -70,6 +71,10 @@ namespace HLoanApplication {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Label^ label19;
 
 	private:
 		/// <summary>
@@ -103,6 +108,10 @@ namespace HLoanApplication {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -119,9 +128,9 @@ namespace HLoanApplication {
 			this->panel1->Controls->Add(this->label15);
 			this->panel1->Controls->Add(this->label14);
 			this->panel1->Controls->Add(this->label13);
-			this->panel1->Location = System::Drawing::Point(38, 329);
+			this->panel1->Location = System::Drawing::Point(40, 407);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(536, 268);
+			this->panel1->Size = System::Drawing::Size(549, 268);
 			this->panel1->TabIndex = 38;
 			// 
 			// label11
@@ -142,9 +151,8 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->label8->Location = System::Drawing::Point(371, 167);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(122, 23);
+			this->label8->Size = System::Drawing::Size(0, 23);
 			this->label8->TabIndex = 49;
-			this->label8->Text = L"PANXXXXX";
 			this->label8->Click += gcnew System::EventHandler(this, &Eligibility::label8_Click);
 			// 
 			// label9
@@ -152,11 +160,12 @@ namespace HLoanApplication {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Lucida Console", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(147, 200);
+			this->label9->Location = System::Drawing::Point(136, 200);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(61, 30);
 			this->label9->TabIndex = 48;
 			this->label9->Text = L"(₹)";
+			this->label9->Click += gcnew System::EventHandler(this, &Eligibility::label9_Click);
 			// 
 			// label10
 			// 
@@ -176,9 +185,8 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->label7->Location = System::Drawing::Point(371, 114);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(52, 23);
+			this->label7->Size = System::Drawing::Size(0, 23);
 			this->label7->TabIndex = 46;
-			this->label7->Text = L"Low";
 			// 
 			// label16
 			// 
@@ -220,9 +228,8 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->label14->Location = System::Drawing::Point(371, 52);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(52, 23);
+			this->label14->Size = System::Drawing::Size(0, 23);
 			this->label14->TabIndex = 20;
-			this->label14->Text = L"600";
 			this->label14->Click += gcnew System::EventHandler(this, &Eligibility::label14_Click);
 			// 
 			// label13
@@ -299,9 +306,8 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(329, 101);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(122, 23);
+			this->label5->Size = System::Drawing::Size(0, 23);
 			this->label5->TabIndex = 43;
-			this->label5->Text = L"PANXXXXX";
 			// 
 			// textBox1
 			// 
@@ -317,7 +323,7 @@ namespace HLoanApplication {
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(222, 237);
+			this->button1->Location = System::Drawing::Point(224, 315);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(154, 48);
 			this->button1->TabIndex = 46;
@@ -325,11 +331,57 @@ namespace HLoanApplication {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Eligibility::button1_Click);
 			// 
+			// textBox2
+			// 
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Lucida Console", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox2->Location = System::Drawing::Point(333, 221);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(153, 30);
+			this->textBox2->TabIndex = 50;
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->Location = System::Drawing::Point(275, 223);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(21, 20);
+			this->label12->TabIndex = 49;
+			this->label12->Text = L"-";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Lucida Console", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->Location = System::Drawing::Point(492, 221);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(25, 30);
+			this->label17->TabIndex = 48;
+			this->label17->Text = L"₹";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Lucida Console", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label19->Location = System::Drawing::Point(59, 220);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(178, 23);
+			this->label19->TabIndex = 47;
+			this->label19->Text = L"Propery Cost";
+			// 
 			// Eligibility
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(628, 643);
+			this->ClientSize = System::Drawing::Size(624, 727);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label17);
+			this->Controls->Add(this->label19);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label4);
@@ -350,42 +402,19 @@ namespace HLoanApplication {
 #pragma endregion
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-	public:map<string, string> EligibilityCheckApi(long int salary) {
-			map<string, string> response;
-			if(salary<50000){
-				response["Cibil"] = "<600";
-				response["ApprovalProbab"] = "Low";
-
-				response["EligiblityAmt"] = to_string(salary*10);
-			}else if (salary < 400000) {
-				response["Cibil"] = "600-649";
-				response["ApprovalProbab"] = "Difficult";
-
-				response["EligiblityAmt"] = to_string(salary * 10);
-			}else if (salary < 800000) {
-				response["Cibil"] = "650-699";
-				response["ApprovalProbab"] = "Possible";
-				response["EligiblityAmt"] = to_string(salary * 10);
-			}else if (salary < 1500000) {
-				response["Cibil"] = "700-749";
-				response["ApprovalProbab"] = "Good";
-				response["EligiblityAmt"] = to_string(salary * 10);
-			}else if (salary >= 1500000) {
-				response["Cibil"] = "750-900";
-				response["ApprovalProbab"] = "Very High";
-				response["EligiblityAmt"] = to_string(salary * 10);
-			}
-			return response;
-
-	}
 
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ salary_Str = textBox1->Text;
+	String^ property_cost_Str = textBox2->Text;
+
 	std::string salary_str = msclr::interop::marshal_as<std::string>(salary_Str);
 
 	long int salary = stol(salary_str);
 
-	map<string, string> response = EligibilityCheckApi(salary);
+	std::string property_str = msclr::interop::marshal_as<std::string>(property_cost_Str);
+	long int propert_cost = stol(property_str);
+
+	map<string, string> response = CalcServiceImpl::getEligibilityCheck(salary, propert_cost);
 	String^ cibil_Str = msclr::interop::marshal_as<String^>(response["Cibil"]);
 	String^ approval_Str = msclr::interop::marshal_as<String^>(response["ApprovalProbab"]);
 
@@ -401,6 +430,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void label14_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label9_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

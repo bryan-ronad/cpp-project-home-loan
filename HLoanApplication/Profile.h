@@ -232,7 +232,7 @@ namespace HLoanApplication {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(652, 543);
+			this->ClientSize = System::Drawing::Size(633, 543);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);

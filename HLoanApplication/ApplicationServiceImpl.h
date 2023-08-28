@@ -42,7 +42,7 @@ public:
 
    
     */
-    void updateApplicationStatus(long int applicationID, string status = "APPROVED")
+    bool updateApplicationStatus(long int applicationID, string status = "APPROVED")
     {
         HLApplication applicationToUpdate = this->applicationDaoObj.getApplication(applicationID);
         return this->applicationDaoObj.updateApplicationStatus(applicationToUpdate, status);

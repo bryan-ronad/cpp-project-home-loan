@@ -3,7 +3,6 @@
 #include <string>
 #include "UserServiceImpl.h"
 #include "UserDAOImpl.h"
-
 #include <msclr/marshal_cppstd.h>
 
 namespace HLoanApplication {
@@ -107,7 +106,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox1->Location = System::Drawing::Point(359, 72);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(206, 30);
+			this->textBox1->Size = System::Drawing::Size(260, 30);
 			this->textBox1->TabIndex = 0;
 			// 
 			// textBox2
@@ -116,7 +115,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox2->Location = System::Drawing::Point(359, 127);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(206, 30);
+			this->textBox2->Size = System::Drawing::Size(260, 30);
 			this->textBox2->TabIndex = 1;
 			// 
 			// textBox3
@@ -125,7 +124,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox3->Location = System::Drawing::Point(359, 181);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(206, 30);
+			this->textBox3->Size = System::Drawing::Size(260, 30);
 			this->textBox3->TabIndex = 2;
 			// 
 			// textBox4
@@ -134,7 +133,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox4->Location = System::Drawing::Point(359, 234);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(206, 30);
+			this->textBox4->Size = System::Drawing::Size(260, 30);
 			this->textBox4->TabIndex = 3;
 			// 
 			// textBox5
@@ -143,7 +142,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox5->Location = System::Drawing::Point(359, 287);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(206, 30);
+			this->textBox5->Size = System::Drawing::Size(260, 30);
 			this->textBox5->TabIndex = 4;
 			// 
 			// textBox6
@@ -152,7 +151,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox6->Location = System::Drawing::Point(359, 336);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(206, 30);
+			this->textBox6->Size = System::Drawing::Size(260, 30);
 			this->textBox6->TabIndex = 5;
 			// 
 			// textBox7
@@ -161,7 +160,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox7->Location = System::Drawing::Point(359, 389);
 			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(206, 30);
+			this->textBox7->Size = System::Drawing::Size(260, 30);
 			this->textBox7->TabIndex = 6;
 			// 
 			// textBox8
@@ -170,7 +169,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox8->Location = System::Drawing::Point(359, 445);
 			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(206, 30);
+			this->textBox8->Size = System::Drawing::Size(260, 30);
 			this->textBox8->TabIndex = 7;
 			// 
 			// textBox9
@@ -179,7 +178,7 @@ namespace HLoanApplication {
 				static_cast<System::Byte>(0)));
 			this->textBox9->Location = System::Drawing::Point(359, 499);
 			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(206, 30);
+			this->textBox9->Size = System::Drawing::Size(260, 30);
 			this->textBox9->TabIndex = 8;
 			// 
 			// label1
@@ -332,7 +331,7 @@ namespace HLoanApplication {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(723, 718);
+			this->ClientSize = System::Drawing::Size(671, 718);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->button2);
@@ -394,6 +393,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		
 		if (response["status_code"] == "200") {
 			MessageBox::Show(status_message);
+			this->Close();
 		}
 		else {
 			MessageBox::Show("Error Occured");

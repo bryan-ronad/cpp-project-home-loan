@@ -347,9 +347,9 @@ namespace HLoanApplication {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(175, 793);
+			this->button2->Location = System::Drawing::Point(199, 793);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(152, 40);
+			this->button2->Size = System::Drawing::Size(125, 40);
 			this->button2->TabIndex = 34;
 			this->button2->Text = L"Back";
 			this->button2->UseVisualStyleBackColor = true;
@@ -358,9 +358,9 @@ namespace HLoanApplication {
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(360, 793);
+			this->button1->Location = System::Drawing::Point(384, 793);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(152, 40);
+			this->button1->Size = System::Drawing::Size(125, 40);
 			this->button1->TabIndex = 33;
 			this->button1->Text = L"Apply";
 			this->button1->UseVisualStyleBackColor = true;
@@ -414,7 +414,7 @@ namespace HLoanApplication {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(778, 928);
+			this->ClientSize = System::Drawing::Size(751, 928);
 			this->Controls->Add(this->label13);
 			this->Controls->Add(this->textBox9);
 			this->Controls->Add(this->label14);
