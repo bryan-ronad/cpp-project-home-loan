@@ -45,8 +45,8 @@ namespace HLoanApplication {
 			table->Columns->Add("ApplicationId");
 			table->Columns->Add("Status");
 
-			table->Columns->Add("LoanAmt");
 			table->Columns->Add("PropertyName");
+			table->Columns->Add("LoanAmt");
 
 
 			for (const auto& map : resp_obj) {

@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminDashboard.cpp" />
+    <ClCompile Include="EMI.cpp" />
     <ClCompile Include="Landing.cpp" />
     <ClCompile Include="LoanApply.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -138,6 +139,9 @@
     <ClInclude Include="ApplicationDAOImpl.h" />
     <ClInclude Include="ApplicationService.h" />
     <ClInclude Include="ApplicationServiceImpl.h" />
+    <ClInclude Include="EMI.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="HLApplication.h" />
     <ClInclude Include="Landing.h">
       <FileType>CppForm</FileType>
@@ -169,6 +173,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMI.resx">
+      <DependentUpon>EMI.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Landing.resx">
       <DependentUpon>Landing.h</DependentUpon>

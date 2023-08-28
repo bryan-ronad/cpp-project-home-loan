@@ -3,6 +3,7 @@
 #include "LoanApply.h"
 #include "StatusCheck.h"
 #include "Profile.h"
+#include "EMI.h"
 
 
 namespace HLoanApplication {
@@ -226,6 +227,7 @@ namespace HLoanApplication {
 			this->button7->TabIndex = 3;
 			this->button7->Text = L"EMI Calculator";
 			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &UserDashboard::button7_Click);
 			// 
 			// UserDashboard
 			// 
@@ -279,6 +281,11 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void UserDashboard_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	EMI^ emi_cal = gcnew EMI;
+
+	emi_cal->ShowDialog();
 }
 };
 }
