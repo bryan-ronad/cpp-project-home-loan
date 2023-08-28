@@ -4,6 +4,7 @@
 #include "StatusCheck.h"
 #include "Profile.h"
 #include "EMI.h"
+#include "Eligibility.h"
 
 
 namespace HLoanApplication {
@@ -208,7 +209,7 @@ namespace HLoanApplication {
 			this->button6->BackColor = System::Drawing::Color::Transparent;
 			this->button6->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button6->Location = System::Drawing::Point(426, 37);
+			this->button6->Location = System::Drawing::Point(466, 213);
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(242, 81);
 			this->button6->TabIndex = 2;
@@ -221,7 +222,7 @@ namespace HLoanApplication {
 			this->button7->BackColor = System::Drawing::Color::Transparent;
 			this->button7->Font = (gcnew System::Drawing::Font(L"Lucida Console", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button7->Location = System::Drawing::Point(426, 144);
+			this->button7->Location = System::Drawing::Point(466, 320);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(242, 81);
 			this->button7->TabIndex = 3;
@@ -271,6 +272,8 @@ private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void pictureBox1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+	Eligibility^ eli = gcnew Eligibility(_PAN);
+	eli->ShowDialog();
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	Profile^ profile = gcnew Profile(_applicantId, _name, _password, _salary, _PAN, _Aadhaar);

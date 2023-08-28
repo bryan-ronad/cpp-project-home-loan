@@ -465,6 +465,7 @@ namespace HLoanApplication {
 			this->Controls->Add(this->trackBar1);
 			this->Name = L"EMI";
 			this->Text = L"EMI";
+			this->Load += gcnew System::EventHandler(this, &EMI::EMI_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar3))->EndInit();
@@ -553,6 +554,8 @@ private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::Eve
 	EMILOGIC();
 }
 private: System::Void label19_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void EMI_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
