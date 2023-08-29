@@ -8,11 +8,18 @@ using namespace HLoanApplication;
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 {
+	/*
+	* 
+	* 
+	* For Debugging uncomment these lines
+	* 
+	* 
+	
 	srand((unsigned)time(NULL));
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
 
-
+	*/
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
