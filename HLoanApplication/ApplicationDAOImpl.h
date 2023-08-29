@@ -117,8 +117,8 @@ public:
                 iss >> _applicant_id;
                 if (applicant_id == _applicant_id) {
                     iss >> _status;
-                    iss >> _loan_amt;
                     iss >> _property_name;
+                    iss >> _loan_amt;
                     map<string,string> tempMap;
                     tempMap["ApplicationId"] = _application_id;
                     tempMap["Status"] = _status;

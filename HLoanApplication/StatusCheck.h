@@ -43,10 +43,9 @@ namespace HLoanApplication {
 
 			DataTable^ table = gcnew DataTable();
 			table->Columns->Add("ApplicationId");
-			table->Columns->Add("Status");
-
 			table->Columns->Add("PropertyName");
 			table->Columns->Add("LoanAmt");
+			table->Columns->Add("Status");
 
 
 			for (const auto& map : resp_obj) {
@@ -122,6 +121,7 @@ namespace HLoanApplication {
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(633, 355);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &StatusCheck::dataGridView1_CellContentClick);
 			// 
 			// button2
 			// 
@@ -155,5 +155,7 @@ namespace HLoanApplication {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }

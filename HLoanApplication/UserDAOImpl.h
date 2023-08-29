@@ -7,9 +7,10 @@
 #include <filesystem>
 #include "UserDAO.h"
 #include "User.h"
+
 using namespace std;
 
-class UserDAOImpl
+class UserDAOImpl : public UserDAO
 {
 public:
     User createUser(string password, string fname, string lname, long int salary, string PAN, string Aadhaar, bool is_admin)

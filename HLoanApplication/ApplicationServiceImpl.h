@@ -7,8 +7,8 @@ class ApplicationServiceImpl {
 private:
     ApplicationDAOImpl applicationDaoObj;
 public:
-    ApplicationServiceImpl(ApplicationDAOImpl applicationDaoObj) {
-        this->applicationDaoObj = applicationDaoObj;
+    ApplicationServiceImpl(ApplicationDAOImpl _applicationDaoObj) {
+        this->applicationDaoObj = _applicationDaoObj;
     }
 
     map<string, string> createApplication(long int applicantID, string propertyName, int propertyCost, int salary, string PAN, string Aadhaar, string applicationStatus = "PENDING")

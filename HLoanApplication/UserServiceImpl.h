@@ -10,14 +10,14 @@
 #include "HLApplication.h"
 #include "UserDAOImpl.h"
 
-class UserServiceImpl  {
+class UserServiceImpl:public UserService  {
 private:
     UserDAOImpl userDaoObj;
 
 
 public:
-    UserServiceImpl(UserDAOImpl userDaoObj) {
-        this->userDaoObj = userDaoObj;
+    UserServiceImpl(UserDAOImpl _userDaoObj) {
+        this->userDaoObj = _userDaoObj;
     }
 
     map<string, string> login(string applicantID, string password)
