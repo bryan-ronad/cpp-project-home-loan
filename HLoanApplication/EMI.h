@@ -135,6 +135,7 @@ namespace HLoanApplication {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(536, 256);
 			this->panel1->TabIndex = 37;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EMI::panel1_Paint);
 			// 
 			// label19
 			// 
@@ -548,6 +549,8 @@ private: System::Void trackBar3_ValueChanged(System::Object^ sender, System::Eve
 private: System::Void label19_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void EMI_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

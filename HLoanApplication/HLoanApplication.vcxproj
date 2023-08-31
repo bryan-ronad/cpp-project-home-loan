@@ -157,6 +157,9 @@
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Payment1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Profile.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -193,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment1.resx">
+      <DependentUpon>Payment1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.h</DependentUpon>

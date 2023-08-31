@@ -61,25 +61,14 @@ namespace HLoanApplication {
 
 				DataRow^ row = table->NewRow();
 				for (const auto& obj : map) {
-
-					cout << obj.first << endl;
-
-
-
 					string key = obj.first;
 					String^ converted_str = msclr::interop::marshal_as< String^ >(obj.second);
 					String^ converted_str_key = msclr::interop::marshal_as< String^ >(obj.first);
-
 					row[converted_str_key] = converted_str;
-
 				}
-
 				table->Rows->Add(row);
-
 			}
-
 			dataGridView1->DataSource = table;
-
 		}
 		bool check_number(string str) {
 			for (int i = 0; i < str.length(); i++)

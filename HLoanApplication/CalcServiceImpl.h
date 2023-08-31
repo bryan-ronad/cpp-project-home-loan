@@ -1,27 +1,33 @@
 #pragma once
 #include <map>
 #include <string>
+#include<math.h>
 using namespace std;
 
 class CalcServiceImpl {
 
 public:
 	static float emiCalc(long int LoanAmt, long int IntrestRate, long int Tenure) {
-		float RATE_OF_INTEREST = (float)IntrestRate / 1200;
-		float compounded_rate = pow(1 + RATE_OF_INTEREST, Tenure * 12);
-		float denominator = (double)(compounded_rate - 1);
-		float numerator = LoanAmt * RATE_OF_INTEREST * compounded_rate;
+		double RATE_OF_INTEREST = (double)IntrestRate / 1200;
+		double compounded_rate = pow(1 + RATE_OF_INTEREST, Tenure * 12);
+		double denominator = (double)(compounded_rate - 1);
+		double numerator = LoanAmt * RATE_OF_INTEREST * compounded_rate;
 
-		float EMI = numerator / denominator;
-		return EMI;
+		double EMI = numerator / denominator;
+		return long int(EMI);
 		
+	}
+	static long int getEmitenure(long int rp, float i, float e) {
+		long int tenure = (log(e) - log(e - ((float)rp * i))) / log(1 + i);
+		return tenure;
+
 	}
 	static map<string, string> getEmi(long int LoanAmt, long int IntrestRate, long int Tenure) {
 		map<string, string> response;
-		float EMI = CalcServiceImpl::emiCalc(LoanAmt, IntrestRate, Tenure);
+		double EMI = CalcServiceImpl::emiCalc(LoanAmt, IntrestRate, Tenure);
 		
-		float TotalPayableAmt = EMI * Tenure * 12;
-		float PayableIntrest = TotalPayableAmt - LoanAmt;
+		double TotalPayableAmt = EMI * Tenure * 12;
+		double PayableIntrest = TotalPayableAmt - LoanAmt;
 		//////////
 
 		response["loan_emi"] = to_string(int(EMI));
@@ -36,7 +42,7 @@ public:
 
 		float PART_OF_THE_SALARY = 0.6;
 		
-		float eligible_amt =int((PART_OF_THE_SALARY * salary/12 * property_cost) / (CalcServiceImpl::emiCalc(property_cost, 8.5, 10))); // Special Bank offer EMI
+		double eligible_amt =int((PART_OF_THE_SALARY * salary/12 * property_cost) / (CalcServiceImpl::emiCalc(property_cost, 8.5, 10))); // Special Bank offer EMI
 		map<string, string> response;
 		if (salary < 50000) {
 			response["Cibil"] = "<600";

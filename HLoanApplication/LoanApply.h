@@ -459,11 +459,18 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	ApplicationDAOImpl applicationDaoObj;
 	ApplicationServiceImpl application_service_obj(applicationDaoObj);
 
-	
+	std::string converted_tenure = msclr::interop::marshal_as< std::string >(textBox6->Text);
+	std::string converted_intrest = msclr::interop::marshal_as< std::string >(textBox4->Text);
+
 	
 	std::string converted_appId = msclr::interop::marshal_as< std::string >(textBox8->Text);
 
+
 	long int li_appId = stol(converted_appId);
+	long int li_intrest = stol(converted_intrest);
+	long int li_tenure = stol(converted_tenure);
+	float intrest = stof(converted_intrest);
+
 
 	std::string PAN = msclr::interop::marshal_as< std::string >(textBox10->Text);
 
@@ -478,7 +485,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 
 
-	map<string, string> response=application_service_obj.createApplication(li_appId,property_name, li_loan_amt, li_salary, PAN, Aadhar);
+	map<string, string> response=application_service_obj.createApplication(li_appId,property_name, li_loan_amt, li_salary, PAN, Aadhar,"PENDING", 0, li_tenure, li_tenure, intrest);
 	
 	String^ status_msg = msclr::interop::marshal_as< String^>(response["status_msg"]);
 

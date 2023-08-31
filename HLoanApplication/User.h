@@ -9,7 +9,7 @@ using namespace std;
 
 class User
 {
-public:
+
     long int applicantID = 0;
     string first_name;
     string last_name;
@@ -18,9 +18,11 @@ public:
     string PAN;
     string Aadhaar;
     bool is_admin = false;
+
     friend ostream& operator<<(ostream& out, User& u);
     friend istream& operator>>(istream& in, User& u);
 
+public:
     User(string password = "", string fname = "", string lname = "", long int salary = 0, string PAN = "", string Aadhaar = "", bool is_admin = false)
     {
         if (password != "")

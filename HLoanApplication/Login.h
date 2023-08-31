@@ -199,9 +199,6 @@ namespace HLoanApplication {
 		String^ PAN = msclr::interop::marshal_as<String^>(user_details["PAN"]);
 
 		String^ Aadhaar = msclr::interop::marshal_as<String^>(user_details["Aadhaar"]);
-
-
-		cout << user_details["is_admin"] << endl;
 		if (status_code == 200) {
 			MessageBox::Show(status_message);
 			this->Close();

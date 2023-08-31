@@ -50,7 +50,6 @@ public:
 
     void saveToFile(User user)
     {
-        cout << "In save to file" << endl;
         ofstream fout("users.txt", ofstream::app);
         if (fout.is_open())
         {

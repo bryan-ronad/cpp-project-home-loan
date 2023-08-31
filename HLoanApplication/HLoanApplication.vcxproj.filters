@@ -51,7 +51,10 @@
     <ClCompile Include="StatusCheck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EMICALC.cpp">
+    <ClCompile Include="Eligibility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EMI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,8 +113,17 @@
     <ClInclude Include="StatusCheck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EMICALC.h">
+    <ClInclude Include="Eligibility.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EMI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Payment1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CalcServiceImpl.h">
+      <Filter>Resource Files\service</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

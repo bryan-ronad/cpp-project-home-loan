@@ -70,12 +70,6 @@ public:
                         user_details["Aadhaar"] = Aadhaar;
 
                         user_details["is_admin"] = is_admin;
-                        cout << "----" << endl;
-                        cout << is_admin << endl;
-                        cout << "----" << endl;
-
-
-
                         user_details["status_message"] = "Logged In Successfully";
                         user_details["status_code"] = "200";
                         return user_details;
@@ -110,8 +104,6 @@ public:
     }
     bool logout()
     {
-        cout << "Logged Out \n";
-
         return true;
     }
     bool checkEligibility(HLApplication application)
